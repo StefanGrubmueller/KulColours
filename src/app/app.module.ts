@@ -13,6 +13,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import {AngularFireModule} from "@angular/fire/compat";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireStorageModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase), 'cloud'),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
