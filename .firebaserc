@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "kul-colours"
+  },
+  "targets": {
+    "kul-colours": {
+      "hosting": {
+        "KulColours": [
+          "kul-colours"
+        ]
+      }
+    }
+  }
+}
