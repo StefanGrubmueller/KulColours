@@ -4,9 +4,12 @@
   },
   "hosting": {
     "public": "dist/kul-colours",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ],
     "ignore": [
       "firebase.json",
-      "**/.*",
       "**/node_modules/**"
     ]
   },
