@@ -1,15 +1,34 @@
-<h2 mat-dialog-title>This is a Dialog title</h2>
+<h2 mat-dialog-title>Upload Pictures</h2>
 
 <mat-dialog-content>
+  <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone">
+    Just drag and drop files here
+  </div>
 
-  <input type="file"
-         id="file"
-         #userPhoto
-         (change)="upload($event)"
-         name="image"
-         autocomplete="off"
-  />
-  <button mat-raised-button >upload</button>
+  <div style="width: 500px">
+    <mat-file-upload-queue #fileUploadQueue
+                           [fileAlias]="'file'" multiple>
+
+      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue?.files; let i = index" (onUpload)="upload($event)"></mat-file-upload>
+    </mat-file-upload-queue>
+  </div>
+<!--  <p-fileUpload-->
+<!--    mode="basic" url="./upload.php"-->
+<!--                type="file"-->
+<!--                (onUpload)="upload($event)"-->
+<!--                [multiple]="true"-->
+<!--                accept="image/*">-->
+
+<!--  </p-fileUpload>-->
+
+<!--  <input type="file"-->
+<!--         id="file"-->
+<!--         #userPhoto-->
+<!--         (change)="upload($event)"-->
+<!--         name="image"-->
+<!--         autocomplete="off"-->
+<!--  />-->
+<!--  <button mat-raised-button >upload</button>-->
 </mat-dialog-content>
 
 <mat-dialog-actions>

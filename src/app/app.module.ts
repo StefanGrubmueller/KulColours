@@ -21,7 +21,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatListModule} from "@angular/material/list";
 import {NavigationComponent} from './navigation/navigation.component';
 import {HeaderComponent} from './header/header.component';
@@ -30,6 +30,9 @@ import {LogInComponent} from './log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { UploadPicturesComponent } from './upload-pictures/upload-pictures.component';
+import {FileUploadModule} from "primeng/fileupload";
+import {HttpClientModule} from "@angular/common/http";
+import {MatFileUploadModule} from "angular-material-fileupload";
 
 @NgModule({
   declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent],
@@ -57,6 +60,10 @@ import { UploadPicturesComponent } from './upload-pictures/upload-pictures.compo
     ReactiveFormsModule,
     MatListModule,
     AppRoutingModule,
+    FileUploadModule,
+    HttpClientModule,
+    MatFileUploadModule,
+    FormsModule
   ],
   providers: [{
     provide: MatDialogRef,
