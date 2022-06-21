@@ -15,17 +15,30 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {RouterModule} from "@angular/router";
+import {MatCommonModule} from "@angular/material/core";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatListModule} from "@angular/material/list";
+import { NavigationComponent } from './navigation/navigation.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    NavigationComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    MatCommonModule,
     MatButtonModule,
     AngularFireStorageModule,
     provideFirebaseApp(() => initializeApp(environment.firebase), 'cloud'),
@@ -34,6 +47,13 @@ import {RouterModule} from "@angular/router";
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

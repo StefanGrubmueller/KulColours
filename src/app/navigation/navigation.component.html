@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+  <mat-sidenav class="mat-elevation-z8" mode="push" [(opened)]="shouldRun" position="end">
+    <div class="navigation-list">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+      <button mat-button>
+        <mat-icon>photo</mat-icon>
+        <span>Albums</span>
+      </button>
+      <button mat-button>
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </button>
+      <mat-divider></mat-divider>
+
+      <button mat-button>
+        <mat-icon>cloud_upload</mat-icon>
+        <span>Upload</span>
+      </button>
+      <button mat-button>
+        <mat-icon>person</mat-icon>
+        <span>Login</span>
+      </button>
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      Main content here!
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

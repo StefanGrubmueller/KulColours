@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: center;
+
+  span {
+    flex: 1;
+    transform: translate(50%, 0);
+
+  }
+
+  .mat-button-wrapper {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}

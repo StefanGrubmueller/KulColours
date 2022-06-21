@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from "@angular/fire/compat/storage";
 import {finalize, Observable} from "rxjs";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-main-page',
@@ -17,6 +18,8 @@ export class MainPageComponent implements OnInit {
   fb: any;
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
   }
+
+
 
   ngOnInit(): void {
   }
