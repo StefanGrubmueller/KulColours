@@ -29,9 +29,10 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {LogInComponent} from './log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import { UploadPicturesComponent } from './upload-pictures/upload-pictures.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent],
+  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -63,7 +64,7 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
   },
     LogInComponent],
   bootstrap: [AppComponent],
-  entryComponents: [LogInComponent]
+  entryComponents: [LogInComponent, UploadPicturesComponent]
 })
 export class AppModule {
 }
