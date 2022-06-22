@@ -34,11 +34,15 @@ export class NavigationComponent implements OnInit {
   }
 
   openLogInDialog() {
-    this.matDialog.open(LogInComponent);
+    this.matDialog.open(LogInComponent, {
+      width: '50em'
+    });
   }
 
   openUploadDialog() {
-    this.matDialog.open(UploadPicturesComponent);
+    this.matDialog.open(UploadPicturesComponent, {
+      width: '50em'
+    });
   }
 
 }

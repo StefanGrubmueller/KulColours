@@ -1,3 +1,47 @@
+.login-form-title {
+  display: flex;
+  justify-content: center;
+}
 
+.login-form {
+  display: flex;
+  flex-flow: column;
+}
+
+.mat-form-field {
+  padding: 1em 2em;
+}
+
+.login-form-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+
+.login-form-login-button {
+  background-color: #38383d;
+  color: white;
+}
+
+.login-message {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+.login-message span {
+  font-weight: bold;
+  color: black;
+}
+.login-message .login-success {
+  padding: 2em 1em;
+  background: rgba(0, 128, 0, 0.3411764706);
+  width: 100%;
+}
+.login-message .login-failed {
+  padding: 2em 1em;
+  background: rgba(255, 0, 0, 0.3294117647);
+  width: 100%;
+}
 
 /*# sourceMappingURL=log-in.component.css.map */
