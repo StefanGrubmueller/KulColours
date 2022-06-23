@@ -32,6 +32,7 @@ import {MatFileUploadModule} from "angular-material-fileupload";
 import {MatInputModule} from "@angular/material/input";
 import { FooterComponent } from './footer/footer.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTreeModule} from "@angular/material/tree";
 
 @NgModule({
   declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent],
@@ -61,7 +62,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTreeModule
   ],
   providers: [{
     provide: MatDialogRef,

@@ -16,6 +16,7 @@ export class NavigationComponent implements OnInit {
   @Input()
   shouldRun: boolean;
 
+  @Input()
   isLoggedIn = false;
 
   constructor(private matDialog: MatDialog, private afAuth: AngularFireAuth,) {
@@ -24,11 +25,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     this.afAuth.authState.pipe(first()).pipe(
       tap(user => {
-        if (user) {
-          this.isLoggedIn = true;
-        } else {
-          this.isLoggedIn = false;
-        }
+        this.isLoggedIn = !!user;
       })
     ).subscribe()
   }

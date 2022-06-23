@@ -1,6 +1,10 @@
 
 html, body {
   height: 100vh;
+
+  span {
+    letter-spacing: 0.2em;
+  }
 }
 
 body {
@@ -11,6 +15,18 @@ body {
 mat-toolbar {
   background: #004a9f;
   color: white;
+}
+
+
+.mat-grid-tile-content {
+  margin-top: 4em !important;
+  align-items: baseline !important;
+}
+
+.footer {
+  .mat-form-field-flex {
+    background-color: white !important;
+  }
 }
 
 
