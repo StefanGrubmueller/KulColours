@@ -1,0 +1,5 @@
+<mat-grid-list cols="3" rowHeight="40%">
+  <mat-grid-tile *ngFor="let album of albums">
+    <button mat-raised-button (click)="onSelectAlbum(album.album)">{{album.album}}</button>
+  </mat-grid-tile>
+</mat-grid-list>

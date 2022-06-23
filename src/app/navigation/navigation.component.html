@@ -1,34 +1,57 @@
 <mat-sidenav-container>
 
-  <mat-sidenav class="mat-elevation-z8" mode="push" [(opened)]="shouldRun" position="end">
+  <mat-sidenav [(opened)]="shouldRun" class="mat-elevation-z8" mode="push" position="end">
     <div class="navigation-list">
-      <button mat-button>
+      <button mat-button (click)="goToHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
 
-      <button mat-button>
+      <button (click)="goToAlbums()" mat-button>
         <mat-icon>photo</mat-icon>
         <span>Albums</span>
       </button>
+
+<!--      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">-->
+<!--        <mat-tree-node *matTreeNodeDef="let node">-->
+<!--          <button disabled mat-icon-button></button>-->
+<!--          <a href="{{goToSelectedAlbum(node.name)}}">-->
+<!--            <button mat-button><span>{{node.name}}</span></button>-->
+<!--          </a>-->
+<!--        </mat-tree-node>-->
+<!--        <mat-tree-node *matTreeNodeDef="let node;when: hasChild">-->
+<!--          <button [attr.aria-label]="'toggle ' + node.name" mat-icon-button-->
+<!--                  matTreeNodeToggle>-->
+<!--            <span>{{node.name}}</span>-->
+<!--          </button>-->
+<!--        </mat-tree-node>-->
+<!--      </mat-tree>-->
+
       <button mat-button>
         <mat-icon>info</mat-icon>
         <span>About</span>
       </button>
       <mat-divider></mat-divider>
 
-      <button mat-button *ngIf="isLoggedIn" (click)="openUploadDialog()">
+      <button (click)="openUploadDialog()" *ngIf="isLoggedIn" mat-button>
         <mat-icon>cloud_upload</mat-icon>
         <span>Upload</span>
       </button>
-      <button mat-button (click)="openLogInDialog()">
+      <button (click)="openLogInDialog()" mat-button>
         <mat-icon>person</mat-icon>
         <span>Login</span>
       </button>
 
     </div>
   </mat-sidenav>
-  <mat-sidenav-content><app-image-grid></app-image-grid>
-    <app-footer></app-footer></mat-sidenav-content>
+  <mat-sidenav-content>
+    <app-image-grid *ngIf="isHome"></app-image-grid>
+    <app-albums *ngIf="isAlbums"
+                [albums]="albums"
+                (onAlbumIsSelected)="goToSelectedAlbum($event)">
+    </app-albums>
+    <app-album *ngIf="isAlbum" [albumName]="albumName"></app-album>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
 
 </mat-sidenav-container>

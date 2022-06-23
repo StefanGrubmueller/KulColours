@@ -34,38 +34,42 @@ import { FooterComponent } from './footer/footer.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTreeModule} from "@angular/material/tree";
 import { ImageGridComponent } from './image-grid/image-grid.component';
+import {MatSelectModule} from "@angular/material/select";
+import { AlbumsComponent } from './albums/albums.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    MatCommonModule,
-    MatButtonModule,
-    AngularFireStorageModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    RouterModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatDialogModule,
-    MatSidenavModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatListModule,
-    AppRoutingModule,
-    FileUploadModule,
-    HttpClientModule,
-    MatFileUploadModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatGridListModule,
-    MatTreeModule
-  ],
+  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent, AlbumsComponent, AlbumComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AngularFireAuthModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
+        MatCommonModule,
+        MatButtonModule,
+        AngularFireStorageModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        RouterModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatDialogModule,
+        MatSidenavModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatListModule,
+        AppRoutingModule,
+        FileUploadModule,
+        HttpClientModule,
+        MatFileUploadModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatGridListModule,
+        MatTreeModule,
+        MatSelectModule
+    ],
   providers: [{
     provide: MatDialogRef,
     useValue: {}

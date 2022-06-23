@@ -26,3 +26,17 @@ mat-toolbar {
 
 
 
+
+.upload-picturs-form-description {
+
+  width: 100%;
+  .mat-form-field {
+    width: 100%;
+  }
+  .mat-form-field-flex{
+    width: 100%;
+    height: 9em !important;
+  }
+
+}
+
