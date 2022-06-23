@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  background-color: #646464;
+  color: white;
+}
+.footer .footer-title {
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+.footer span {
+  text-transform: uppercase;
+  color: white;
+}
+
+.footer-kul-colours {
+  display: flex;
+  flex-flow: column;
+}
+.footer-kul-colours span {
+  padding: 0.5em 0;
+}
+
+.footer-social-media {
+  display: flex;
+  flex-flow: column;
+}
+.footer-social-media span {
+  padding: 0.5em 0;
+}
+
+.newsletter {
+  margin-top: 1em;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+}
+.login-form .mat-button {
+  margin-top: -1em;
+}
+
+.mat-tree {
+  background-color: transparent;
+  color: white;
+}
+
+/*# sourceMappingURL=footer.component.css.map */

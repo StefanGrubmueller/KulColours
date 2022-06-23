@@ -30,9 +30,13 @@ import {FileUploadModule} from "primeng/fileupload";
 import {HttpClientModule} from "@angular/common/http";
 import {MatFileUploadModule} from "angular-material-fileupload";
 import {MatInputModule} from "@angular/material/input";
+import { FooterComponent } from './footer/footer.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTreeModule} from "@angular/material/tree";
+import { ImageGridComponent } from './image-grid/image-grid.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent],
+  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -58,7 +62,9 @@ import {MatInputModule} from "@angular/material/input";
     MatFileUploadModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule,
+    MatTreeModule
   ],
   providers: [{
     provide: MatDialogRef,

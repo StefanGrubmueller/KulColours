@@ -1,17 +1,14 @@
 .header {
   display: flex;
   justify-content: center;
-
-  span {
-    flex: 1;
-    transform: translate(50%, 0);
-
-  }
-
-  .mat-button-wrapper {
-    flex: 1;
-    justify-content: flex-end;
-  }
+}
+.header span {
+  flex: 1;
+  transform: translate(50%, 0);
+}
+.header .mat-button-wrapper {
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .mat-toolbar {
@@ -20,3 +17,5 @@
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
+
+/*# sourceMappingURL=header.component.css.map */

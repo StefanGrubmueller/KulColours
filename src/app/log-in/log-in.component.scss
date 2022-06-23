@@ -4,10 +4,12 @@
 }
 .login-form {
   display: flex;
+  align-items: center;
   flex-flow: column;
 }
 .mat-form-field {
   padding: 1em 2em;
+  width: 80%;
 }
 
 .login-form-buttons {
