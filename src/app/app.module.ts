@@ -33,9 +33,10 @@ import {MatInputModule} from "@angular/material/input";
 import { FooterComponent } from './footer/footer.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTreeModule} from "@angular/material/tree";
+import { ImageGridComponent } from './image-grid/image-grid.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent],
+  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

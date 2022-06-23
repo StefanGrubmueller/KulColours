@@ -1,5 +1,6 @@
 html, body {
   height: 100vh;
+  overflow: hidden;
 }
 html span, body span {
   letter-spacing: 0.2em;

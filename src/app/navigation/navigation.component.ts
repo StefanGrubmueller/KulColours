@@ -4,6 +4,8 @@ import {LogInComponent} from "../log-in/log-in.component";
 import {UploadPicturesComponent} from "../upload-pictures/upload-pictures.component";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {first, tap} from "rxjs";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {getStorage, ref} from "@angular/fire/storage";
 
 
 @Component({
@@ -19,10 +21,13 @@ export class NavigationComponent implements OnInit {
   @Input()
   isLoggedIn = false;
 
-  constructor(private matDialog: MatDialog, private afAuth: AngularFireAuth,) {
+  constructor(private matDialog: MatDialog, private afAuth: AngularFireAuth) {
   }
 
   ngOnInit(): void {
+
+
+
     this.afAuth.authState.pipe(first()).pipe(
       tap(user => {
         this.isLoggedIn = !!user;
