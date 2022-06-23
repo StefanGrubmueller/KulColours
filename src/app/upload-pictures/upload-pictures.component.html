@@ -1,36 +1,59 @@
 <h2 mat-dialog-title>Upload Pictures</h2>
 
 <mat-dialog-content>
-  <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone">
+  <form [formGroup]="uploadForm" class="login-form">
+    <div class="upload-picture-form-row">
+      <mat-form-field appearance="fill" color="primary">
+        <mat-label>Album</mat-label>
+        <input formControlName="album"
+               matInput
+               placeholder="Please enter the name of the album"
+               required>
+        <mat-error *ngIf="uploadForm.controls['album'].invalid">{{getAlbumErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <mat-select formControlName="author">
+          <mat-option *ngFor="let author of authors" [value]="author.name">
+            {{author.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="uploadForm.controls['author'].invalid">You must enter a correct author</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="upload-picturs-form-description">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input formControlName="description"
+               matInput
+               placeholder="Please enter the description">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone"
+       *ngIf="uploadForm.controls['album'].valid && uploadForm.controls['author'].valid">
     Just drag and drop files here
   </div>
-
-  <div style="width: 500px">
+  <input type="file"
+         multiple
+         [fileUploadInputFor]="fileUploadQueue"
+         *ngIf="uploadForm.controls['album'].valid && uploadForm.controls['author'].valid"/>
+  <div style="width: 100%" class="upload-queue-upload-status">
     <mat-file-upload-queue #fileUploadQueue
-                           [fileAlias]="'file'" multiple>
+                           [fileAlias]="'file'">
 
-      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue?.files; let i = index" (onUpload)="upload($event)"></mat-file-upload>
+      <mat-file-upload (onUpload)="upload($event)" *ngFor="let file of fileUploadQueue?.files; let i = index"
+                       [file]="file"
+                       [id]="i">
+      </mat-file-upload>
     </mat-file-upload-queue>
   </div>
-<!--  <p-fileUpload-->
-<!--    mode="basic" url="./upload.php"-->
-<!--                type="file"-->
-<!--                (onUpload)="upload($event)"-->
-<!--                [multiple]="true"-->
-<!--                accept="image/*">-->
 
-<!--  </p-fileUpload>-->
-
-<!--  <input type="file"-->
-<!--         id="file"-->
-<!--         #userPhoto-->
-<!--         (change)="upload($event)"-->
-<!--         name="image"-->
-<!--         autocomplete="off"-->
-<!--  />-->
-<!--  <button mat-raised-button >upload</button>-->
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button (click)="close()" class="mat-raised-button">Close</button>
 </mat-dialog-actions>

@@ -20,4 +20,15 @@ mat-toolbar {
   background-color: white !important;
 }
 
+.upload-picturs-form-description {
+  width: 100%;
+}
+.upload-picturs-form-description .mat-form-field {
+  width: 100%;
+}
+.upload-picturs-form-description .mat-form-field-flex {
+  width: 100%;
+  height: 9em !important;
+}
+
 /*# sourceMappingURL=styles.css.map */
