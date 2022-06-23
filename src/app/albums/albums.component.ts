@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {dbImage} from "../upload-pictures/upload-pictures.component";
 
@@ -11,10 +11,17 @@ export class AlbumsComponent implements OnInit {
 
   @Input()
   albums: dbImage[] = [];
+
+  @Output()
+  onAlbumIsSelected = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
-;
+
+  }
+
+  onSelectAlbum(selectedAlbumName: string) {
+    this.onAlbumIsSelected.emit(selectedAlbumName);
   }
 
 }

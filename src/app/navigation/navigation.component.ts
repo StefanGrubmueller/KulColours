@@ -8,7 +8,19 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {getStorage, ref} from "@angular/fire/storage";
 import {Router} from "@angular/router";
 import {AngularFireDatabase} from "@angular/fire/compat/database";
+import {MatTreeFlatDataSource, MatTreeFlattener} from "@angular/material/tree";
+import {FlatTreeControl} from "@angular/cdk/tree";
 
+interface AlbumsNode {
+  name: string;
+  children?: AlbumsNode[];
+}
+
+interface AlbumsFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+}
 
 @Component({
   selector: 'app-navigation',
@@ -23,10 +35,31 @@ export class NavigationComponent implements OnInit {
   @Input()
   isLoggedIn = false;
 
+  private _transformer = (node: AlbumsNode, level: number) => {
+    return {
+      expandable: !!node.children && node.children.length > 0,
+      name: node.name,
+      level: level,
+    };
+  }
+
+
+  treeFlattener = new MatTreeFlattener(
+    this._transformer, node => node.level, node => node.expandable, node => node.children);
+
+
+  treeControl = new FlatTreeControl<AlbumsFlatNode>(
+    node => node.level, node => node.expandable)
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+
+  albumsNav: AlbumsNode[] = [];
+
   isHome = true;
   isAlbums = false;
+  isAlbum = false;
 
   albums: dbImage[] = [];
+  albumName: string;
 
   constructor(private matDialog: MatDialog, private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
   }
@@ -44,14 +77,21 @@ export class NavigationComponent implements OnInit {
         if (this.albums.find(elem => elem.album  !== album.album) || this.albums.length === 0) {
           this.albums.push(<dbImage>album);
         }
+        // this.albums.forEach(albums => this.albumsNav.push({name: this.albums.find(elem => elem?.album  !== albums.album).album}));
+        // this.dataSource.data = [
+        //   {
+        //     name: 'Albums',
+        //     children: this.albumsNav,
+        //   },
+        // ];
       })
     })
   }
 
   goToAlbums() {
     this.isHome = false;
+    this.isAlbum = false;
     this.isAlbums = true;
-    //this.router.navigate([`albums`]);
   }
 
   openLogInDialog() {
@@ -67,8 +107,18 @@ export class NavigationComponent implements OnInit {
   }
 
   goToHome() {
+    this.isAlbum = false;
     this.isAlbums = false;
     this.isHome = true;
   }
+
+  goToSelectedAlbum(selectedAlbum: string) {
+    this.albumName = selectedAlbum;
+    this.isAlbums = false;
+    this.isHome = false;
+    this.isAlbum = true;
+  }
+
+  hasChild = (_: number, node: AlbumsFlatNode) => node.expandable;
 
 }

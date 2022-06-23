@@ -36,9 +36,10 @@ import {MatTreeModule} from "@angular/material/tree";
 import { ImageGridComponent } from './image-grid/image-grid.component';
 import {MatSelectModule} from "@angular/material/select";
 import { AlbumsComponent } from './albums/albums.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
-  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent, AlbumsComponent],
+  declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent, FooterComponent, ImageGridComponent, AlbumsComponent, AlbumComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
