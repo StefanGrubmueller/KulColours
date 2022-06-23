@@ -7,10 +7,6 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {MatButtonModule} from "@angular/material/button";
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {environment} from '../environments/environment';
-import {getAuth, provideAuth} from '@angular/fire/auth';
-import {getDatabase, provideDatabase} from '@angular/fire/database';
-import {getFirestore, provideFirestore} from '@angular/fire/firestore';
-import {getMessaging, provideMessaging} from '@angular/fire/messaging';
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
@@ -29,10 +25,11 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {LogInComponent} from './log-in/log-in.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
-import { UploadPicturesComponent } from './upload-pictures/upload-pictures.component';
+import {UploadPicturesComponent} from './upload-pictures/upload-pictures.component';
 import {FileUploadModule} from "primeng/fileupload";
 import {HttpClientModule} from "@angular/common/http";
 import {MatFileUploadModule} from "angular-material-fileupload";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [AppComponent, MainPageComponent, NavigationComponent, HeaderComponent, LogInComponent, UploadPicturesComponent],
@@ -45,11 +42,7 @@ import {MatFileUploadModule} from "angular-material-fileupload";
     MatCommonModule,
     MatButtonModule,
     AngularFireStorageModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase), 'cloud'),
-    provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
-    provideMessaging(() => getMessaging()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     RouterModule,
     MatToolbarModule,
     MatIconModule,
@@ -63,7 +56,9 @@ import {MatFileUploadModule} from "angular-material-fileupload";
     FileUploadModule,
     HttpClientModule,
     MatFileUploadModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [{
     provide: MatDialogRef,

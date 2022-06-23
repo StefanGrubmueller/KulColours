@@ -1,4 +1,5 @@
 <mat-sidenav-container>
+
   <mat-sidenav class="mat-elevation-z8" mode="push" [(opened)]="shouldRun" position="end">
     <div class="navigation-list">
       <button mat-button>
@@ -16,7 +17,7 @@
       </button>
       <mat-divider></mat-divider>
 
-      <button mat-button (click)="openUploadDialog()">
+      <button mat-button *ngIf="isLoggedIn" (click)="openUploadDialog()">
         <mat-icon>cloud_upload</mat-icon>
         <span>Upload</span>
       </button>

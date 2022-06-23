@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "angular-material-fileupload": "^3.0.2",
-    "firebase": "^9.8.3",
     "primeng": "^13.4.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
