@@ -1,11 +1,9 @@
-<p>
-  <mat-toolbar class="header">
-    <span>KUL COLOURS</span>
-    <button (click)="shouldRun = !shouldRun" aria-label="Example icon-button with menu icon" class="example-icon"
-            mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+<mat-toolbar class="header">
 
+  <span>KUL COLOURS</span>
+  <button (click)="shouldRun = !shouldRun" aria-label="Example icon-button with menu icon" class="example-icon"
+          mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
 <app-navigation [shouldRun]="shouldRun"></app-navigation>
