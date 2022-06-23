@@ -1,0 +1,38 @@
+.mat-sidenav {
+  border-right: none;
+  background: grey;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.navigation-list {
+  display: flex;
+  flex-flow: column;
+}
+.navigation-list .mat-button {
+  flex-grow: 1;
+  margin: 1em 4em;
+}
+.navigation-list .mat-icon {
+  margin-right: 1em;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: lightgray;
+}
+
+.mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+/*# sourceMappingURL=navigation.component.css.map */
