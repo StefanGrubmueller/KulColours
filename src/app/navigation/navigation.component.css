@@ -2,7 +2,6 @@
   border-right: none;
   background: grey;
   color: white;
-  border-radius: 10px;
   padding: 16px;
   text-align: center;
 }
@@ -33,6 +32,11 @@
 
 .mat-sidenav-container {
   height: calc(100vh - 65px);
+}
+
+.mat-button {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=navigation.component.css.map */

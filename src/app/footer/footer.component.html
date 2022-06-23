@@ -1,0 +1,67 @@
+<div class="footer">
+  <mat-grid-list cols="3" rowHeight="25em">
+    <mat-grid-tile
+      colspan='1'
+      rowspan="1">
+      <div class="footer-kul-colours">
+        <span class="footer-title">Kul Colours</span>
+        <span>Street: alserbachstraße</span>
+        <span>City: Vienna</span>
+        <span>ZIP Code: 1090</span>
+        <span>Phone: +43 660 6343368</span>
+        <span>Email: stefan.grubmueller@polygons.at</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      colspan='1'
+      rowspan="1">
+      <div class="footer-social-media">
+        <span class="footer-title">About us</span>
+        <span>We are a young group of photographers who would like to share our common experience and adventures with you. We have already shot some beautiful motifs and there will surely be more to come.</span>
+        <span>If you want to be kept up to date follow our newsletter.</span>
+        <span class="newsletter">Newsletter</span>
+
+        <form [formGroup]="newsletterForm" class="login-form">
+          <mat-form-field appearance="fill" color="primary">
+            <mat-label>EMAIL</mat-label>
+            <input formControlName="email"
+                   matInput
+                   placeholder="Your email address">
+
+            <mat-error *ngIf="newsletterForm.controls['email'].invalid">{{getEmailErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+          <button mat-button>SUBMIT</button>
+        </form>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile
+      colspan='1'
+      rowspan="1">
+      <div class="footer-social-media">
+        <span class="footer-title">Stay in Touch</span>
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+          <!-- This is the tree node template for leaf nodes -->
+          <mat-tree-node *matTreeNodeDef="let node">
+            <!-- use a disabled button to provide padding for tree leaf -->
+            <button disabled mat-icon-button></button>
+            <a href="{{getInstagramLink(node.name)}}">
+              <button mat-button><span>{{node.name}}</span></button>
+            </a>
+          </mat-tree-node>
+          <!-- This is the tree node template for expandable nodes -->
+          <mat-tree-node *matTreeNodeDef="let node;when: hasChild">
+            <button [attr.aria-label]="'toggle ' + node.name" mat-icon-button
+                    matTreeNodeToggle>
+              <span>{{node.name}}</span>
+            </button>
+          </mat-tree-node>
+        </mat-tree>
+        <span>Twitter</span>
+        <span>Facebook</span>
+        <span>LinkedIn</span>
+        <button mat-raised-button>Contact us</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
